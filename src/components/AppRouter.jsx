@@ -10,11 +10,11 @@ const AppRouter = () => {
       {/*Header*/}
       <Route path="/" component={Header} />
 
-      {/*Footer*/}
-      <Route path="/" component={Footer} />
-
       {/*Contnet*/}
       <Route path="/" component={Content} />
+
+      {/*Footer*/}
+      <Route path="/" component={Footer} />
     </Router>
   );
 };
