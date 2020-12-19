@@ -3,7 +3,7 @@ export default {
   subThemeColor: "#fadfdd",
   pointColor: "#e17060",
   errorColor: "#d63031",
-  checkColor: "#05c46b",
+  checkColor: "#0689b2",
 
   whiteColor: "#fff",
   blackColor: "#0b0b0b",
