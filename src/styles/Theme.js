@@ -1,14 +1,14 @@
 export default {
-  mainThemeColor: "#fab1a0",
-  subThemeColor: "#fadfdd",
-  pointColor: "#e17060",
-  errorColor: "#d63031",
-  checkColor: "#0689b2",
+  mainThemeColor: "#9980FA",
+  subThemeColor: "#5758BB",
+  pointColor: "#D980FA",
+  errorColor: "#ED4C67",
+  checkColor: "#0652DD",
 
   whiteColor: "#fff",
   blackColor: "#0b0b0b",
-  grayColor: "#777",
-  darkgrayColor: "#212121",
+  darkGreyColor: "rgb(20,20,20)",
+  greyColor: "#777",
 
   radius: "4px",
   border: "1px solid #777",

@@ -1,8 +1,13 @@
 import React from "react";
-import { Wrapper, ImageBox } from "../../components/commonComponents";
+import {
+  Wrapper,
+  ImageBox,
+  CommonBtn,
+} from "../../components/commonComponents";
 import styled from "styled-components";
 import Fade from "react-reveal/Fade";
 import Bounce from "react-reveal/Bounce";
+import { Link } from "react-router-dom";
 
 const ViewText = styled.div`
   margin: 6px;
@@ -115,6 +120,12 @@ const MM00Presenter = ({ videoDatum, fileChangeHandler, imagePath }) => {
       <Image src={imagePath} />
       <FileInput type="file" id="file-js" onChange={fileChangeHandler} />
       <FileLabel htmlFor="file-js">파일선택</FileLabel>
+
+      <Wrapper margin={`50px 0px`}>
+        <Link to="/video/upload">
+          <CommonBtn isCreate={true}>동영상 업로드</CommonBtn>
+        </Link>
+      </Wrapper>
     </Wrapper>
   );
 };
