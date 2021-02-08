@@ -78,8 +78,8 @@ const FileLabel = styled.label`
 `;
 
 const Image = styled.img`
-  width: 400px;
-  height: 400px;
+  width: 450px;
+  height: 450px;
   margin: 0px 10px;
   border-radius: 5px;
   object-fit: cover;
@@ -91,8 +91,8 @@ const Image = styled.img`
     justify-content: center;
 
     position: absolute;
-    width: 400px;
-    height: 400px;
+    width: 450px;
+    height: 450px;
     background-color: #e7e7e7;
     border: 2px dotted #777;
     color: #666666;
@@ -146,7 +146,14 @@ const Button = styled.button`
   }
 `;
 
-const MM02Presenter = ({ videoDatum, fileChangeHandler, imagePath }) => {
+const MM02Presenter = ({
+  videoDatum,
+  fileChangeHandler,
+  imagePath,
+  newTitle,
+  newDesc,
+  registerHandler,
+}) => {
   return (
     <Wrapper>
       <Typist
@@ -161,15 +168,22 @@ const MM02Presenter = ({ videoDatum, fileChangeHandler, imagePath }) => {
           <FileLabel htmlFor="file-js">
             <Image src={imagePath} />
           </FileLabel>
-          <FileInput type="file" id="file-js" onChange={fileChangeHandler} />
+          <FileInput
+            type="file"
+            id="file-js"
+            onChange={fileChangeHandler}
+            accept=".png, .jpg, .jpeg"
+          />
         </LeftWrapper>
         <RightWrapper>
           <RightupWrapper>
-            <TextInput placeholder="title" />
-            <TextInput placeholder="description" height="350px" />
+            <TextInput placeholder="title" {...newTitle} />
+            <TextInput placeholder="description" height="350px" {...newDesc} />
           </RightupWrapper>
           <RightdownWrapper>
-            <CommonBtn isCreate={true}>UPLOAD</CommonBtn>
+            <CommonBtn isCreate={true} onClick={registerHandler}>
+              저장하기
+            </CommonBtn>
           </RightdownWrapper>
         </RightWrapper>
       </RowWrapper>
