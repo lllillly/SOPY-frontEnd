@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useQuery } from "react-apollo-hooks";
+import { useQuery, useMutation } from "react-apollo-hooks";
 import MM00Presenter from "./MM00Presenter";
-import { GET_ALL_VIDEOS } from "./MM00Queries";
+import { GET_ALL_VIDEOS, DELETE_VIDEO } from "./MM00Queries";
 import storageRef from "../../firebase";
 
-const MM00Container = () => {
+const MM00Container = ({ history }) => {
   //////////// VARIABLE  ////////////////////
 
   //////////// USE STATE  ///////////////////
@@ -22,6 +22,8 @@ const MM00Container = () => {
   } = useQuery(GET_ALL_VIDEOS);
 
   //////////// USE MUTATION  ////////////////
+
+  const [deleteVideoMutation] = useMutation(DELETE_VIDEO);
 
   ///////////// USE EFFECT  /////////////////
 
@@ -64,11 +66,34 @@ const MM00Container = () => {
     }
   };
 
+  const videoDeleteHandler = async (id) => {
+    const { data } = await deleteVideoMutation({
+      variables: {
+        id,
+      },
+    });
+
+    console.log(data);
+
+    if (data.deleteVideo) {
+      alert("비디오가 삭제되었습니다.");
+      videoRefetch();
+    } else {
+      alert("비디오 삭제에 실패했습니다.");
+    }
+  };
+
+  const updateHandler = (id) => {
+    history.push(`/video/edit/${id}`);
+  };
+
   return (
     <MM00Presenter
       videoDatum={videoDatum && videoDatum.getAllVideos}
       fileChangeHandler={fileChangeHandler}
       imagePath={imagePath}
+      videoDeleteHandler={videoDeleteHandler}
+      updateHandler={updateHandler}
     />
   );
 };
